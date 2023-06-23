@@ -76,56 +76,60 @@
 
 
 
-
 fetch('data.json')
   .then(response => response.json())
   .then(data => {
-    // JSON data is loaded and parsed, you can work with it here
-    console.log(data);
+    // Check if the "data" object and "data.data" array exist
+    if (data && data.data) {
+      // JSON data is loaded and parsed, you can work with it here
+      console.log(data);
 
-    // Access the "data" array from the JSON
-    const dataArray = data.data;
+      // Access the "data" array from the JSON
+      const dataArray = data.data;
 
-    // Get the <div> element
-    const jsonDataElement = document.getElementById("json-data");
+      // Get the <div> element
+      const jsonDataElement = document.getElementById("json-data");
 
-    // Check if the element exists before setting its content
-    if (jsonDataElement) {
-      // Create the table element
-      const table = document.createElement("table");
+      // Check if the element exists before setting its content
+      if (jsonDataElement) {
+        // Create the table element
+        const table = document.createElement("table");
 
-      // Create the table header row
-      const headerRow = document.createElement("tr");
+        // Create the table header row
+        const headerRow = document.createElement("tr");
 
-      // Iterate over the header values and create table header cells
-      data.header.forEach(headerValue => {
-        const headerCell = document.createElement("th");
-        headerCell.textContent = headerValue;
-        headerRow.appendChild(headerCell);
-      });
-
-      // Append the header row to the table
-      table.appendChild(headerRow);
-
-      // Iterate over each row in the data array and create table rows
-      dataArray.forEach(rowData => {
-        const row = document.createElement("tr");
-
-        // Iterate over the values in the current row and create table cells
-        rowData.forEach(cellValue => {
-          const cell = document.createElement("td");
-          cell.textContent = cellValue;
-          row.appendChild(cell);
+        // Iterate over the header values and create table header cells
+        data.header.forEach(headerValue => {
+          const headerCell = document.createElement("th");
+          headerCell.textContent = headerValue;
+          headerRow.appendChild(headerCell);
         });
 
-        // Append the row to the table
-        table.appendChild(row);
-      });
+        // Append the header row to the table
+        table.appendChild(headerRow);
 
-      // Append the table to the <div> element
-      jsonDataElement.appendChild(table);
+        // Iterate over each row in the data array and create table rows
+        dataArray.forEach(rowData => {
+          const row = document.createElement("tr");
+
+          // Iterate over the values in the current row and create table cells
+          rowData.forEach(cellValue => {
+            const cell = document.createElement("td");
+            cell.textContent = cellValue;
+            row.appendChild(cell);
+          });
+
+          // Append the row to the table
+          table.appendChild(row);
+        });
+
+        // Append the table to the <div> element
+        jsonDataElement.appendChild(table);
+      } else {
+        console.error("Element with ID 'json-data' not found.");
+      }
     } else {
-      console.error("Element with ID 'json-data' not found.");
+      console.error("Invalid JSON data format.");
     }
   })
   .catch(error => {
