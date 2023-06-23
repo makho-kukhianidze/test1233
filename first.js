@@ -17,13 +17,11 @@ fetch('data.json')
 
       // Iterate over the nested arrays and access the individual values
       dataArray.forEach(row => {
-        row.forEach(value => {
-          formattedData.push(value);
-        });
+        formattedData.push(row.join(", "));
       });
 
       // Set the JSON data as the text content of the <p> element
-      jsonDataElement.textContent = formattedData.join(", ");
+      jsonDataElement.textContent = formattedData.join("<br>");
     } else {
       console.error("Element with ID 'json-data' not found.");
     }
