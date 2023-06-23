@@ -5,7 +5,7 @@ fetch('data.json')
     console.log(data);
 
     // Get the <p> element
-    var jsonDataElement = document.getElementById("json-data");
+    var jsonDataElement = document.getElementById("data");
 
     // Set the JSON data as the text content of the <p> element
     jsonDataElement.textContent = JSON.stringify(data);
