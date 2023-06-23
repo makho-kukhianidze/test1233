@@ -7,12 +7,23 @@ fetch('data.json')
     // Access the "data" array from the JSON
     const dataArray = data.data;
 
-    // Iterate over the nested arrays and access the individual values
-    dataArray.forEach(row => {
-      row.forEach(value => {
-        console.log(value);
+    // Get the <p> element
+    const jsonDataElement = document.getElementById("json-data");
+
+    // Check if the element exists before setting its text content
+    if (jsonDataElement) {
+      // Iterate over the nested arrays and access the individual values
+      dataArray.forEach(row => {
+        row.forEach(value => {
+          console.log(value);
+        });
       });
-    });
+
+      // Set the JSON data as the text content of the <p> element
+      jsonDataElement.textContent = JSON.stringify(dataArray);
+    } else {
+      console.error("Element with ID 'json-data' not found.");
+    }
   })
   .catch(error => {
     // Handle any error that occurred during the fetch
