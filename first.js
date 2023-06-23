@@ -4,11 +4,9 @@ fetch('data.json')
     // JSON data is loaded and parsed, you can work with it here
     console.log(data);
 
-    // Get the <p> element
-    var jsonDataElement = document.getElementById("data");
-
-    // Set the JSON data as the text content of the <p> element
-    jsonDataElement.textContent = JSON.stringify(data);
+    // Access the "data" array from the JSON
+    const dataArray = data.data;
+    console.log(dataArray);
   })
   .catch(error => {
     // Handle any error that occurred during the fetch
