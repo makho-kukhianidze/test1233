@@ -13,13 +13,7 @@ fetch('data.json')
     // Check if the element exists before setting its content
     if (jsonDataElement) {
       // Create an array to store the formatted JSON data
-      const formattedData = [];
-
-      // Iterate over the nested arrays and access the individual values
-      dataArray.forEach(row => {
-        const rowString = row.join(", ");
-        formattedData.push(`<p>${rowString}</p>`);
-      });
+      const formattedData = dataArray.map(row => `<p>${row.join(", ")}</p>`);
 
       // Set the formatted JSON data as the content of the <div> element
       jsonDataElement.innerHTML = formattedData.join("");
