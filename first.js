@@ -15,12 +15,13 @@ fetch('data.json')
       // Iterate over the nested arrays and access the individual values
       dataArray.forEach(row => {
         row.forEach(value => {
-          console.log(value);
+   
+          jsonDataElement.textContent = JSON.stringify(value);
         });
       });
 
       // Set the JSON data as the text content of the <p> element
-      jsonDataElement.textContent = JSON.stringify(value);
+    
     } else {
       console.error("Element with ID 'json-data' not found.");
     }
