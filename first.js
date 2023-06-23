@@ -12,16 +12,18 @@ fetch('data.json')
 
     // Check if the element exists before setting its text content
     if (jsonDataElement) {
+      // Create an array to store the formatted JSON data
+      const formattedData = [];
+
       // Iterate over the nested arrays and access the individual values
       dataArray.forEach(row => {
         row.forEach(value => {
-   
-          jsonDataElement.textContent = JSON.stringify(value);
+          formattedData.push(value);
         });
       });
 
       // Set the JSON data as the text content of the <p> element
-    
+      jsonDataElement.textContent = formattedData.join(", ");
     } else {
       console.error("Element with ID 'json-data' not found.");
     }
