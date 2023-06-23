@@ -20,7 +20,7 @@ fetch('data.json')
       });
 
       // Set the JSON data as the text content of the <p> element
-      jsonDataElement.textContent = JSON.stringify(dataArray);
+      jsonDataElement.textContent = JSON.stringify(value);
     } else {
       console.error("Element with ID 'json-data' not found.");
     }
