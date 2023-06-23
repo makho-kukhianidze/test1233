@@ -6,7 +6,13 @@ fetch('data.json')
 
     // Access the "data" array from the JSON
     const dataArray = data.data;
-    console.log(dataArray);
+
+    // Iterate over the nested arrays and access the individual values
+    dataArray.forEach(row => {
+      row.forEach(value => {
+        console.log(value);
+      });
+    });
   })
   .catch(error => {
     // Handle any error that occurred during the fetch
