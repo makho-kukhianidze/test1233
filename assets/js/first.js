@@ -1,11 +1,14 @@
-    fetch('json/data.json') //
+    fetch('./json/data.json') // 1. მივწვდით data.json ფაილს!
       .then(response => response.json())
-      .then(data => {
+      .then(Mydata => { // 2. ამოვიღეთ მთლიანი მონაცემი data.json - იდან! 
+
+
         // JSON data is loaded and parsed, you can work with it here
-        console.log(data);
+        console.log(Mydata);
+
 
         // Access the "data" array from the JSON
-        const dataArray = data.data;
+        const dataArray = Mydata.data;
 
         // Get the <div> element for JSON data
         const jsonDataElement = document.getElementById("json-data");
@@ -29,7 +32,7 @@
         }
 
         // Create the table
-        function createTable(data) {
+        function createTable(Mydata) {
           var table = document.createElement("table");
           var thead = document.createElement("thead");
           var tbody = document.createElement("tbody");
@@ -46,7 +49,7 @@
           thead.appendChild(headerRow);
 
           // Create table rows
-          data.forEach(function(obj) {
+          Mydata.forEach(function(obj) {
             var row = document.createElement("tr");
             Object.keys(obj).forEach(function(key) {
               var cell = document.createElement("td");
