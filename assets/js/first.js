@@ -198,7 +198,7 @@ fetch('./assets/js/json/data.json') // 1. მივწვდი data.json ფა
   // Create table footer row and cell
   var footerRow = document.createElement("tr");
   var footerCell = document.createElement("td");
-  footerCell.setAttribute("colspan", Object.keys(data[0]).length.toString());
+
   footerCell.style.textAlign = "center";
   footerCell.textContent = "სტატუსი: აქტიურია!";
   footerRow.appendChild(footerCell);
