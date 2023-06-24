@@ -1,35 +1,12 @@
-    fetch('assets/js/json/data.json') // 1. მივწვდით data.json ფაილს!
+    fetch('./assets/js/json/data.json') // 1. მივწვდით data.json ფაილს! ამ js ფაილიდან ჯერ მიდის index.html ში და იქედან იღებს მისამართს და წვდება json - ს!
       .then(response => response.json())
-      .then(Mydata => { // 2. ამოვიღეთ მთლიანი მონაცემი data.json - იდან! 
+      .then(Mydata => { // 2. ამოვიღეთ მთლიანი მონაცემები data.json - იდან და სახელი დავარქვი Mydata! 
+        const personalInformation = Mydata.data; // შევქმენი ცვლადი სახელწოდებით personalInformation - და გადავეცი იმ ჯსონსში პერსონალური ინფორმაციის მქონე ობიექტიდს - data! 
+                                    //  Mydata.data - ეს ნიშნავს რომ მთიალინი data.json - ის მონაცემებიდან ამოვიღე მასში არსებული data (პერსონალური ინფორმაციის მატარებელი ინფო)
 
 
-        // JSON data is loaded and parsed, you can work with it here
-        console.log(Mydata);
 
 
-        // Access the "data" array from the JSON
-        const dataArray = Mydata.data;
-
-        // Get the <div> element for JSON data
-        const jsonDataElement = document.getElementById("json-data");
-
-        // Check if the element exists before setting its content
-        if (jsonDataElement) {
-          // Clear the existing content of the <div> element
-          jsonDataElement.innerHTML = "";
-
-          // Iterate over each row in the data array
-          dataArray.forEach(row => {
-            // Create a new <p> element for each row
-            const paragraph = document.createElement("p");
-            paragraph.textContent = row.join(", ");
-
-            // Append the <p> element to the <div> element
-            jsonDataElement.appendChild(paragraph);
-          });
-        } else {
-          console.error("Element with ID 'json-data' not found.");
-        }
 
         // Create the table
         function createTable(Mydata) {
@@ -68,7 +45,7 @@
 
         // Get the container element and append the table
         var tableContainer = document.getElementById("tableContainer");
-        tableContainer.appendChild(createTable(dataArray));
+        tableContainer.appendChild(createTable(personalInformation));
       })
       .catch(error => {
         // Handle any error that occurred during the fetch
