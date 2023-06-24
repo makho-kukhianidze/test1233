@@ -38,7 +38,7 @@
           // Create table header
           var headerRow = document.createElement("tr");
           // Change the header names here
-          var headerNames = ["Name", "Age", "Location"]; // Example header names
+          var headerNames = ["სახელი", "პროფესია", "დაბადების ადგილი", "დაბადების ადგილი", "დაბადების ადგილი",'ზიპ კოდი', "კარიერის დაწყება", "სასურველი ხელფასი",]; // Example header names
           headerNames.forEach(function(headerName) {
             var th = document.createElement("th");
             th.textContent = headerName;
